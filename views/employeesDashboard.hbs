@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Synergy | Welcome</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/employee.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="contain">
+            <div id="branding">
+                <h1>Synergy</h1>
+            </div>
+            <nav class="navbar-fixed-top">
+                <ul>
+                    <li><a href="#recom">Recommended Jobs</a></li>
+                    <li><a href="#viewprofile">View Profile</a> </li>
+                    <li><a href="/employeeProfileForm">Edit Profile</a> </li>
+                    <li><a href="/employeeLogout">Logout</a> </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="contain">
+            <h1>Find Your Next Job.</h1>
+            <p>Creating a premium experience for job seekers and data seekers alike.</p>
+            <form id="search-form" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-3 col-4" id="search" type="text" placeholder="Job Title">
+                <input class="form-control mr-sm-3 col-4" id="location" type="text" placeholder="Location">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">Search Jobs</button>
+            </form>
+            <main>
+                <div class="container">
+                    <!-- spin -->
+                    <div class="loading-element">
+                        <img src="src/img/45.svg" alt="">
+                    </div>
+                    <div class="result-container"></div>
+                </div>
+            </main>
+            <script src="src/app.js"></script>
+        </div>
+    </section>
+
+    <section id="newsletter">
+        <div class="contain">
+            <h5 style="float: left; margin-left: 0%;">Subscribe To Our Newsletter!</h5>
+            <form action="/employSubscribe" method="post">
+                <input type="email" name="user_mail" placeholder="Enter Email">
+                <button type="submit" class="button_1">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="recom">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9">
+
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Recommended Jobs</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <form class="form-inline tab">
+                                        <div class="form-group mb-2">
+                                            <label class="sr-only">search</label>
+                                            <input type="text" class="form-control form-control-lg" id="inputSearch"
+                                                name="searchJobs" placeholder="Search jobs by skills, designation etc.">
+                                        </div>
+                                        <button type="submit" class="btn btn-secondary mx-sm-5 mb-2">Search</button>
+                                    </form>
+                                    {{#each jobs}}
+                                    <a class="btn btn-secondary" href="/employeeApply/{{_id}}">
+                                        {{jobTitle}} &nbsp; &nbsp; {{keySkills}} &nbsp; &nbsp; {{location}}
+                                    </a>
+                                    <p></p>
+                                    {{/each}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="viewprofile">
+        <div class="contain container container-fluid box">
+            <h1>Your Profile</h1>
+            <div class="row">
+                <div class="offset-md-3 col-md-4">
+                    <table class="table table-striped">
+                        <thead>
+                            <th>
+                                <tr>
+                                    <th>Name:</th>
+                                    <td>
+                                        <h5>{{employee.name}}</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Key Skills:</th>
+                                    <td>
+                                        <h5>{{employee.keySkills}}</h5>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Summary:</th>
+                                    <td>
+                                        <h5>{{employee.summary}}</h5>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Education:</th>
+                                    <td>
+                                        <h5>{{employee.education}}</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Experience:</th>
+                                    <td>
+                                        <h5>{{employee.experience}}</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Projects:</th>
+                                    <td>
+                                        <h5>{{employee.projects}}</h5>
+                                    </td>
+                                </tr>
+
+                            </th>
+                        </thead>
+
+                    </table>
+
+                </div>
+                <div class="col-md-4">
+                    <img style="margin-top: 20px" src="{{employee.imagePath}}" alt="" height="180px" width="180px">
+                    <br>
+                    <br>
+                    <button class="btn btn-secondary">
+                        <a style="color:white"="_blank" href="{{employee.resumePath}}">View Resume</a>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- for footer  -->
+    <footer style="margin-top: 30px;display: block;" class="blog-footer container">
+        <div class="float-right my-9">
+            <a href="#">Back to top</a>
+        </div>
+        <p class="float-left my-2">© 2020-2021 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <!-- JQuery for Smooth Scrolling -->
+    <script>
+        $(function () {
+
+            $('a[href*="#"]:not([href="#"])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Synergy | Welcome</title>
+    <link rel="stylesheet" href="CSS/employer.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="contain">
+            <div id="branding">
+                <h1>Synergy</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li> <a href="/employerPosts">Posts</a> </li>
+                    <li><a href="#currstat">View Applications</a></li>
+                    <li> <a href="#viewProfile">View Profile</a> </li>
+                    <li> <a href="/employerProfileForm">Edit Profile</a> </li>
+                    <li> <a href="/employerLogout">Logout</a> </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="contain">
+            <h1>Post Your Job.</h1>
+            <p>Creating a premium experience for job seekers and data seekers alike.</p>
+            <h5> <a style="text-decoration: underline;" href="/employerPostJob" class="text-white navbar-brand">Click Here to post your job</a> </h5>
+        </div>
+    </section>
+
+    <section id="newsletter">
+        <div class="contain">
+            <h5 style="float: left; margin-left: 0%;">Subscribe To Our Newsletter!</h5>
+            <form action="/employSubscribe" method="post">
+                <input type="email" name="user_mail" placeholder="Enter your email">
+                <button type="submit"  class="button_1">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="currstat">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">employees Name</th>
+                                <th scope="col">Job Applied</th>
+                                <th scope="col">Date Applied</th>
+                                <th scope="col">View Profile</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                {{#each employees}}
+                                <td scope="row">{{employeeName}}</td>
+                                <td>{{jobTitle}}</td>
+
+                                <td>
+                                    {{timeOfApply}}
+                                </td>
+
+                                </td>
+                                <td scope="col">
+                                    <a class="btn btn-secondary" href="/viewProfile?employeeId={{employeeId}}"
+                                        target="_blank">View Profile</a>
+                                </td>
+                            </tr>
+                            {{/each}}
+
+                        </tbody>
+                    </table>
+                    <br>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="viewProfile">
+        <div class="container-fluid box">
+            <h1>Your Profile</h1>
+            <div class="row">
+                <div class="offset-md-3 col-md-4">
+                    <table class="table table-striped">
+                        <thead>
+                                <tr>
+                                    <th>Name:</th>
+                                    <td>
+                                        <h5>{{employer.name}}</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Designation:</th>
+                                    <td>
+                                        <h5>{{employer.designation}}</h5>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Organization:</th>
+                                    <td>
+                                        <h5>{{employer.organization}}</h5>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Phone number:</th>
+                                    <td>
+                                        <h5>{{employer.phoneNumber}}</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Summary:</th>
+                                    <td>
+                                        <h5>{{employer.summary}}</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>employer Type:</th>
+                                    <td>
+                                        <h5>{{employer.inlineRadioOptions}}</h5>
+                                    </td>
+                                </tr>
+                        </thead>
+
+                    </table>
+
+                </div>
+                <div class="col-md-4">
+                    <img style="margin-top: 20px" src="{{employer.imagePath}}" alt="" height="180px" width="180px">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- for footer  -->
+    <footer style="margin-top: 50px;display: block;" class="blog-footer container">
+        <div class="float-right my-9">
+            <a href="#">Back to top</a>
+        </div>
+        <p class="float-left my-2">© 2020-2021 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+     <!-- JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- JQuery for Smooth Scrolling -->
+    <script>
+        $(function () {
+
+            $('a[href*="#"]:not([href="#"])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

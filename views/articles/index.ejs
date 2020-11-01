@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Synergy | Your Posts</title>
+</head>
+
+<style>
+  body {
+    font: 15px/1.5 Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #f4f4f4;
+  }
+
+  label {
+    font-size: large;
+  }
+
+  .contain {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-weight: bold;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Header */
+  header {
+    background: rgb(0, 152, 190);
+    color: white;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: 3px solid white;
+    margin-bottom: 20px;
+  }
+
+  header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+
+  header li {
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px;
+  }
+
+  header #branding {
+    float: left;
+  }
+
+  header #branding h1 {
+    margin: 0;
+  }
+
+  header nav {
+    float: right;
+    margin-top: 10px;
+  }
+
+  header a:hover {
+    color: rgb(105, 221, 230);
+  }
+
+  #submit {
+    margin-bottom: 20px;
+    margin-left: 172px;
+  }
+</style>
+
+<body>
+
+  <header>
+    <div class="contain">
+      <div id="branding">
+        <h1>Synergy</h1>
+      </div>
+      <nav>
+        <ul>
+          <li> <a href="./employerDash">Home</a> </li>
+          <li> <a href="./employerLogout">Logout</a> </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2 style="font-weight: bolder;" class="mb-4">Your Posts</h2>
+    <a href="/articles/new" class="btn btn-success">New Post</a>
+
+    <% articles.forEach(article => { %>
+      <div class="card mt-4">
+        <div class="card-body">
+          <h4 class="card-title"><%= article.title %></h4>
+          <div class="card-subtitle text-muted mb-2">
+            <%= article.createdAt.toLocaleDateString() %>
+          </div>
+          <div class="card-text mb-2"><%= article.description %></div>
+          <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
+          <a href="articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+          <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    <% }) %>
+
+
+    
+  </div>
+</body>
+
+</html>

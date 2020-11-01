@@ -1,0 +1,82 @@
+#box1{
+    cursor: pointer;
+    position: fixed;           /*this keeps the position of the box fixed even if we scroll*/
+    bottom: 34px;
+    right: 4px;
+    border: 2px solid black;
+    border-radius: 56px;
+    padding: 33px;
+    /* background-color: green; */
+    background-image: url('/Images/clogo.png');
+    max-width: 100%;
+    height: auto;
+}
+
+#home h1 {
+    color: white;
+}
+
+#login {
+    margin-top: 53px;
+    margin-left: 285px;
+    margin-right: 285px;
+    height: 550px;
+    }
+
+#login .box {
+        text-align: center;
+        height: 561px;
+        border: 3px solid rgb(40, 175, 228);
+        padding: 20px;
+        border-radius: 42px;
+        background-color: rgb(225, 239, 243);
+    }
+
+.sub {
+    margin-bottom: 10px;
+}
+
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: blue;
+    color: white;
+    text-align: center;
+  }
+
+  .about{
+      margin: 20px 20px;
+      padding: 20px;
+      text-align: center;
+      background-color: rgb(187, 230, 243);
+  }
+
+  .contact{
+      border-top: 5px solid rgb(73, 189, 243);
+      border-bottom: 5px solid rgb(73, 189, 243);
+      padding: 4px;
+      margin: 30px;
+     
+  }
+
+ .contact::before{
+    background: url("/Images/contact.jpg") no-repeat center center/cover;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    margin-bottom: 10px;
+}
+
+/* Media Queries */
+@media(max-width: 768px) {
+
+    #login .box {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Synergy | SignUp</title>
+</head>
+
+<style>
+    body {
+        font: 15px/1.5 Arial, Helvetica, sans-serif;
+        padding: 0;
+        margin: 0;
+        background-color: #f4f4f4;
+    }
+
+    .contain {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    h1 {
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-weight: bold;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Header **/
+    header {
+        background: rgb(0, 152, 190);
+        color: white;
+        padding-top: 30px;
+        min-height: 70px;
+        border-bottom: 3px solid white;
+        margin-bottom: 20px;
+    }
+
+    header a {
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+    }
+
+    header li {
+        float: left;
+        display: inline;
+        padding: 0 20px 0 20px;
+    }
+
+    header #branding {
+        float: left;
+    }
+
+    header #branding h1 {
+        margin: 0;
+    }
+
+    header nav {
+        float: right;
+        margin-top: 10px;
+    }
+
+    header a:hover {
+        color: rgb(105, 221, 230);
+    }
+
+    #submit {
+        margin-bottom: 20px;
+        margin-left: 172px;
+    }
+</style>
+
+<body>
+
+    <header>
+        <div class="contain">
+            <div id="branding">
+                <h1>Synergy</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li> <a href="/">Home</a> </li>
+                </ul>
+            </nav>
+        </div>
+    </header><br>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="offset-md-4 col-md-4">
+                <form action="signupemployee" method="POST">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Employee-Signup
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/signupemployee">As-Employee</a>
+                            <a class="dropdown-item" href="/signUp_employer">As-Employer</a>
+                            <a class="dropdown-item" href="#"></a>
+                        </div>
+                    </div>
+                    <p></p>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username</label>
+                        <input type="email" class="form-control" id="userName" name="userName"
+                            aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll
+                            never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" name="password" id="password"
+                            placeholder="Enter Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Confirm
+                            Password</label>
+                        <input type="password" class="form-control" name="confirmPassword" id="confirmPassword"
+                            placeholder="Re-Enter Password">
+                    </div>
+
+                    <div>
+                        <button type="submit" id="button" name="button" class="btn btn-primary">Sign Up</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
