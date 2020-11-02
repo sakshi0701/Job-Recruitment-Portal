@@ -32,8 +32,8 @@ const server = createServer((req, res) => {
     } 
 });
 
-
-server.listen(3000, () => {
+let port = 3000||process.env.port
+server.listen(port, () => {
   console.log(chalk.green('Server listening'));
 } );
 
