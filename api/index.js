@@ -32,7 +32,7 @@ const server = createServer((req, res) => {
     } 
 });
 
-let port = 3000||process.env.port
+let port = 8080||process.env.port
 server.listen(port, () => {
   console.log(chalk.green('Server listening'));
 } );
